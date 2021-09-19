@@ -19,4 +19,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
 
     @Override
     Optional<User> findById(Integer id);
+
+    Optional<User> findByName(String name);
 }

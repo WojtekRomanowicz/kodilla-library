@@ -14,15 +14,23 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "bookborrow")
 public class BookBorrow {
+
+    public BookBorrow(Integer bookCopyId, Integer userId){
+        this.bookCopyId = bookCopyId;
+        this.userId = userId;
+        this.borrowDate = LocalDate.now();
+        this.returnDate = LocalDate.now().plusMonths(1);
+    }
+
     @Id
     @GeneratedValue
     private Integer id;
 
     @Column(name = "bookCopyId")
-    private Long bookCopyId;
+    private Integer bookCopyId;
 
     @Column(name = "userId")
-    private Long userId;
+    private Integer userId;
 
     @Column(name = "borrowDate")
     private LocalDate borrowDate;
